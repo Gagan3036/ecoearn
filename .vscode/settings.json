@@ -1,4 +1,3 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic",
-    "cmake.sourceDirectory": "D:/Documents/Projects/ecoearn/linux"
+    "cmake.sourceDirectory": "D:/Documents/Projects/ecoearn/customer/linux"
 }
