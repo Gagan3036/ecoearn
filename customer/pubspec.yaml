@@ -40,7 +40,7 @@ dependencies:
   firebase_auth: ^5.5.0
   google_fonts: ^6.2.1 # Use the latest version
   fl_chart: ^0.66.2 # Use the latest version
-  firebase_database: ^9.1.7
+  firebase_database: 11.3.3
 
 dev_dependencies:
   flutter_test:

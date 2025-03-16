@@ -18,7 +18,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(204, 255, 204, 1),
+      backgroundColor: const Color.fromRGBO(22, 196, 127, 1),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -31,10 +31,10 @@ class _LoginState extends State<Login> {
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(57, 239, 83, 1),
+                    color: Color.fromRGBO(18, 53, 36, 1),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 Container(
                   padding: const EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
@@ -48,24 +48,10 @@ class _LoginState extends State<Login> {
                       ),
                     ],
                   ),
-                  width: 350,
+                  width: 325,
                   child: Column(
                     children: [
-                      const Text(
-                        'Welcome Back',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'Fill out the information below to access your account.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 5),
                       TextField(
                         controller: _emailController,
                         decoration: const InputDecoration(
@@ -73,7 +59,7 @@ class _LoginState extends State<Login> {
                           border: OutlineInputBorder(),
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 5),
                       TextField(
                         controller: _passwordController,
                         obscureText: !_isPasswordVisible,
@@ -94,7 +80,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 1),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
@@ -112,7 +98,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 1),
                       ElevatedButton(
                         onPressed: () async {
                           await AuthService().signin(
@@ -131,17 +117,6 @@ class _LoginState extends State<Login> {
                           'Sign In',
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      Row(
-                        children: const [
-                          Expanded(child: Divider()),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text('Or sign in with'),
-                          ),
-                          Expanded(child: Divider()),
-                        ],
                       ),
                       const SizedBox(height: 10),
                       ElevatedButton.icon(
@@ -166,7 +141,7 @@ class _LoginState extends State<Login> {
                           style: TextStyle(color: Colors.black),
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 1),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
