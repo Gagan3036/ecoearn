@@ -17,7 +17,8 @@ class AuthService {
     required BuildContext context,
   }) async {
     try {
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -35,7 +36,8 @@ class AuthService {
 
       // Redirect to Login Page (NOT home page)
       await Future.delayed(const Duration(seconds: 1));
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Login()));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const Login()));
     } on FirebaseAuthException catch (e) {
       String message = _handleFirebaseAuthError(e);
       Fluttertoast.showToast(msg: message, backgroundColor: Colors.black54);
@@ -67,7 +69,8 @@ class AuthService {
 
       // Login successful - Navigate to Home Page
       await Future.delayed(const Duration(seconds: 1));
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Home()));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const Home()));
     } on FirebaseAuthException catch (e) {
       String message = _handleFirebaseAuthError(e);
       Fluttertoast.showToast(msg: message, backgroundColor: Colors.black54);
@@ -80,16 +83,20 @@ class AuthService {
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
       if (googleUser == null) return; // User canceled sign-in
 
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
       final credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
 
       await _auth.signInWithCredential(credential);
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Home()));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const Home()));
     } catch (e) {
-      Fluttertoast.showToast(msg: 'Google Sign-In failed. Try again.', backgroundColor: Colors.red);
+      Fluttertoast.showToast(
+          msg: 'Google Sign-In failed. Try again.',
+          backgroundColor: Colors.red);
     }
   }
 
@@ -98,11 +105,13 @@ class AuthService {
     await _auth.signOut();
     await _googleSignIn.signOut();
     await Future.delayed(const Duration(seconds: 1));
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Login()));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => const Login()));
   }
 
   /// ✅ **Reset Password**
-  Future<void> resetPassword({required String email, required BuildContext context}) async {
+  Future<void> resetPassword(
+      {required String email, required BuildContext context}) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
       Fluttertoast.showToast(
