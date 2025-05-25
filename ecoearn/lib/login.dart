@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MyLogin extends StatefulWidget {
-  const MyLogin({Key? key}) : super(key: key);
+  const MyLogin({super.key});
 
   @override
-  _MyLoginState createState() => _MyLoginState();
+  MyLoginState createState() => MyLoginState();
 }
 
-class _MyLoginState extends State<MyLogin> {
+class MyLoginState extends State<MyLogin> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -101,7 +101,8 @@ class _MyLoginState extends State<MyLogin> {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, 'forgot'); // ✅ Updated
+                                  Navigator.pushNamed(
+                                      context, 'forgot'); // ✅ Updated
                                 },
                                 child: Text(
                                   'Forgot Password',
