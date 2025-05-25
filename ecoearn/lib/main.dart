@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/forgot_password.dart'; // <-- Add this
-import 'package:flutter_application/login.dart';
-import 'package:flutter_application/register.dart';
+import 'package:ecoearn/forgot_password.dart'; // <-- Add this
+import 'package:ecoearn/login.dart';
+import 'package:ecoearn/register.dart';
 
 void main() {
   runApp(
