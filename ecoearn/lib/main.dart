@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import './login.dart';
+import 'package:flutter_application/forgot_password.dart'; // <-- Add this
+import 'package:flutter_application/login.dart';
+import 'package:flutter_application/register.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  runApp(
+    MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
-    );
-  }
+      home: MyLogin(),
+      routes: {
+        'register': (context) => MyRegister(),
+        'login': (context) => MyLogin(),
+        'forgot': (context) => ForgotPassword(), // <-- Add this
+      },
+    ),
+  );
 }

@@ -1,255 +1,128 @@
 import 'package:flutter/material.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 
-// Stateful widget for the Login screen.
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class MyLogin extends StatefulWidget {
+  const MyLogin({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  _MyLoginState createState() => _MyLoginState();
 }
 
-// State class for the Login widget.
-class _LoginState extends State<Login> {
-  // Map to store user data (if needed in the future).
-  Map userData = {};
-
-  // Key to manage the form state.
-  final _formkey = GlobalKey<FormState>();
-
+class _MyLoginState extends State<MyLogin> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // Title of the AppBar.
-        title: Text('Login'),
-
-        // Background color of the AppBar.
-        backgroundColor: Colors.green,
-
-        // Text color of the AppBar.
-        foregroundColor: Colors.white,
-
-        // Centers the title in the AppBar.
-        centerTitle: true,
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/login.png'), fit: BoxFit.cover),
       ),
-
-      // Allows scrolling for smaller screens.
-      body: SingleChildScrollView(
-        child: Column(children: <Widget>[
-          // Logo section at the top.
-          Padding(
-            padding: const EdgeInsets.only(top: 30.0),
-            child: Center(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          children: [
+            Container(),
+            Container(
+              padding: EdgeInsets.only(left: 35, top: 130),
+              child: Text(
+                'Welcome\nBack',
+                style: TextStyle(color: Colors.white, fontSize: 33),
+              ),
+            ),
+            SingleChildScrollView(
               child: Container(
-                width: 120,
-                height: 120,
-                decoration: BoxDecoration(
-
-                    // Rounded corners.
-                    borderRadius: BorderRadius.circular(40),
-
-                    // Border styling.
-                    border: Border.all(color: Colors.blueGrey)),
-                child: Image.asset(
-                  // Path to the logo image.
-                  'assets/ecoearn-wbg.jpg',
-                  height: 20,
-                  width: 20,
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 35, right: 35),
+                      child: Column(
+                        children: [
+                          TextField(
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                                fillColor: Colors.grey.shade100,
+                                filled: true,
+                                hintText: "Email",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          SizedBox(height: 30),
+                          TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                fillColor: Colors.grey.shade100,
+                                filled: true,
+                                hintText: "Password",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          SizedBox(height: 40),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Sign in',
+                                style: TextStyle(
+                                    fontSize: 27, fontWeight: FontWeight.w700),
+                              ),
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: Color(0xff4c505b),
+                                child: IconButton(
+                                  color: Colors.white,
+                                  onPressed: () {
+                                    // Sign in logic here
+                                  },
+                                  icon: Icon(Icons.arrow_forward),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 40),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'register');
+                                },
+                                child: Text(
+                                  'Sign Up',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    color: Color(0xff4c505b),
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'forgot'); // ✅ Updated
+                                },
+                                child: Text(
+                                  'Forgot Password',
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    color: Color(0xff4c505b),
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
-          ),
-
-          // Form section for user input.
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Form(
-                  // Associates the form with the key.
-                  key: _formkey,
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        // Email input field.
-                        Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: TextFormField(
-                                validator: MultiValidator([
-                                  RequiredValidator(
-
-                                      // Validation for required field.
-                                      errorText: 'Enter email address'),
-                                  EmailValidator(
-
-                                      // Validation for email format.
-                                      errorText: 'Please correct email filled'),
-                                ]),
-                                decoration: InputDecoration(
-
-                                    // Placeholder text.
-                                    hintText: 'Email',
-
-                                    // Label for the field.
-                                    labelText: 'Email',
-                                    prefixIcon: Icon(
-                                      // Email icon.
-                                      Icons.email,
-                                    ),
-
-                                    // Error message styling.
-                                    errorStyle: TextStyle(fontSize: 18.0),
-                                    border: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.red),
-                                        borderRadius: BorderRadius.all(
-
-                                            // Rounded border.
-                                            Radius.circular(9.0)))))),
-
-                        // Password input field.
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: TextFormField(
-                            validator: MultiValidator([
-                              RequiredValidator(
-
-                                  // Validation for required field.
-                                  errorText: 'Please enter Password'),
-                              MinLengthValidator(8,
-
-                                  // Minimum length validation.
-                                  errorText:
-                                      'Password must be at least 8 characters'),
-                              PatternValidator(r'(?=.*?[#!@$%^&*-])',
-
-                                  // Special character validation.
-                                  errorText:
-                                      'Psw must have at least one special character')
-                            ]),
-                            decoration: InputDecoration(
-                              // Placeholder text.
-                              hintText: 'Password',
-
-                              // Label for the field.
-                              labelText: 'Password',
-                              prefixIcon: Icon(
-                                // Key icon for password.
-                                Icons.key,
-                                color: Colors.green,
-                              ),
-
-                              // Error message styling.
-                              errorStyle: TextStyle(fontSize: 18.0),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.red),
-
-                                  // Rounded border.
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(9.0))),
-                            ),
-                          ),
-                        ),
-
-                        // Forget password text.
-                        Container(
-                          margin: EdgeInsets.fromLTRB(200, 0, 0, 0),
-                          child: Text('Forget Password!'),
-                        ),
-
-                        // Login button.
-                        Padding(
-                          padding: const EdgeInsets.all(28.0),
-                          child: Container(
-                            child: ElevatedButton(
-                                child: Text(
-                                  'Login',
-                                  style: TextStyle(
-
-                                      // Button text styling.
-                                      color: Colors.white,
-                                      fontSize: 22),
-                                ),
-                                onPressed: () {
-                                  if (_formkey.currentState!.validate()) {
-                                    // Prints a message if the form is valid.
-                                    print('form submitted');
-                                  }
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  // Button background color.
-                                  backgroundColor: Colors.green,
-
-                                  // Button text color.
-                                  foregroundColor: Colors.white,
-                                )),
-
-                            // Button width.
-                            width: MediaQuery.of(context).size.width,
-
-                            // Button height.
-                            height: 50,
-                          ),
-                        ),
-
-                        // Divider text for alternative sign-in options.
-                        Center(
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                            child: Center(
-                              child: Text(
-                                'Or Sign In Using!',
-                                style: TextStyle(
-
-                                    // Text styling.
-                                    fontSize: 18,
-                                    color: Colors.black),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        // Social media sign-in options (Google in this case).
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                              child: Container(
-                                height: 40,
-                                width: 40,
-                                child: Image.asset(
-                                  // Path to Google logo.
-                                  'assets/google-logo.png',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        // Sign-up text at the bottom.
-                        Center(
-                          child: Container(
-                            padding: EdgeInsets.only(top: 50),
-                            child: Text(
-                              'SIGN UP!',
-                              style: TextStyle(
-                                fontSize: 20,
-
-                                // Bold text.
-                                fontWeight: FontWeight.w700,
-
-                                // Text color.
-                                color: Colors.lightBlue,
-                              ),
-                            ),
-                          ),
-                        )
-                      ]),
-                )),
-          ),
-        ]),
+          ],
+        ),
       ),
     );
   }
