@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "2581535173",
+    "project_id": "ecoearn-31a1f",
+    "storage_bucket": "ecoearn-31a1f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2581535173:android:333bef2cae989fe44693ac",
+        "android_client_info": {
+          "package_name": "com.greencrew.ecoearn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPeauiybIdNTZ19gP5JD1WUa79uXyRP0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
