@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "388289777677",
+    "project_id": "eco-grocer-df657f",
+    "storage_bucket": "eco-grocer-df657f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388289777677:android:175b7aacc441535622c544",
+        "android_client_info": {
+          "package_name": "com.greencrew.ecoearn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388289777677-hff2e8j6bftblvojqgh0qboojgrgm30h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm_37ZYHlximmhkXPcPXSoxCoQHpR5yVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388289777677-hff2e8j6bftblvojqgh0qboojgrgm30h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "388289777677-bnrupcmh0cg4lmrmgcj9cqcio589su48.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.ecogrocer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388289777677:android:1f31955f9fffc83422c544",
+        "android_client_info": {
+          "package_name": "com.mycompany.ecogrocer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388289777677-dh0ig1b4ld1g1ts12n5hgv6se2vj0n3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.ecogrocer",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "388289777677-hff2e8j6bftblvojqgh0qboojgrgm30h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm_37ZYHlximmhkXPcPXSoxCoQHpR5yVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388289777677-hff2e8j6bftblvojqgh0qboojgrgm30h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "388289777677-bnrupcmh0cg4lmrmgcj9cqcio589su48.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.ecogrocer"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

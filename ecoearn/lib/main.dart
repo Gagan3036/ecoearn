@@ -4,7 +4,6 @@ import 'package:ecoearn/login.dart';
 import 'package:ecoearn/register.dart';
 import 'package:ecoearn/home_page.dart';
 
-
 void main() {
   runApp(
     MaterialApp(

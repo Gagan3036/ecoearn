@@ -101,7 +101,8 @@ class MyLoginState extends State<MyLogin> {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, 'forgot'); // ✅ Updated
+                                  Navigator.pushNamed(
+                                      context, 'forgot'); // ✅ Updated
                                 },
                                 child: Text(
                                   'Forgot Password',
